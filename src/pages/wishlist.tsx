@@ -19,7 +19,7 @@ const WishlistPage: NextPage = () => {
       <div className="h-full pb-10 grid md:grid-cols-2 xl:grid-cols-3 grid-flow-row gap-10 overflow-y-scroll">
         {wishlist.length > 0 ? (
           wishlist?.map((planet, i) => (
-            <Link href={`/planet/${getIdFromUrl(planet.url)}`} key={i}>
+            <Link href={`/planet/${getIdFromUrl(planet.url)}`} key={i} passHref>
               <GlassContainer className="w-full aspect-square p-10 grid place-content-center">
                 <PlanetWithName
                   texture={textureGen(getIdFromUrl(planet.url))}

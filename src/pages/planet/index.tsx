@@ -18,7 +18,7 @@ const PlanetListPage: NextPage = () => {
     if (inView) {
       fetchNextPage();
     }
-  }, [inView]);
+  }, [inView, fetchNextPage]);
 
   return (
     <Section>
@@ -30,7 +30,7 @@ const PlanetListPage: NextPage = () => {
         <div className="h-full pb-10 grid md:grid-cols-2 xl:grid-cols-3 grid-flow-row gap-10 overflow-y-scroll">
           {data?.pages.map((group, i) =>
             group.results.map((planet, j) => (
-              <Link href={`/planet/${getIdFromUrl(planet.url)}`} key={`${i}-${j}`}>
+              <Link href={`/planet/${getIdFromUrl(planet.url)}`} key={`${i}-${j}`} passHref>
                 <GlassContainer className="w-full aspect-square p-10 grid place-content-center">
                   <PlanetWithName
                     texture={textureGen(getIdFromUrl(planet.url))}
